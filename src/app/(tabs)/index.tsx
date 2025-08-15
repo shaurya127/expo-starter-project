@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Image, StyleSheet, ScrollView, Alert } from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
 import { ThemedText } from '@/components/ThemedText';
@@ -16,12 +16,15 @@ export default function HomeScreen() {
       Alert.alert('Please enter your name');
       return;
     }
-    
+
     setLoading(true);
     // Simulate API call
     setTimeout(() => {
       setLoading(false);
-      Alert.alert('Welcome!', `Hello ${name}! Welcome to your Expo starter app.`);
+      Alert.alert(
+        'Welcome!',
+        `Hello ${name}! Welcome to your Expo starter app.`
+      );
     }, 1000);
   };
 
@@ -49,8 +52,8 @@ export default function HomeScreen() {
             Get Started
           </ThemedText>
           <ThemedText style={styles.description}>
-            This is your comprehensive Expo starter template with best practices, 
-            essential utilities, and modern React Native patterns.
+            This is your comprehensive Expo starter template with best
+            practices, essential utilities, and modern React Native patterns.
           </ThemedText>
 
           <Input
@@ -72,7 +75,7 @@ export default function HomeScreen() {
           <ThemedText type="subtitle" style={styles.featuresTitle}>
             What's Included
           </ThemedText>
-          
+
           <ThemedView style={styles.featureItem}>
             <ThemedText type="defaultSemiBold">🎨 Theming System</ThemedText>
             <ThemedText>Light/dark theme support with custom colors</ThemedText>

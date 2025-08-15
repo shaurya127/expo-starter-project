@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyleSheet, ScrollView, Alert } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -12,7 +11,10 @@ export default function ExploreScreen() {
   const [showAll, toggleShowAll] = useToggle(false);
 
   const handleTestAPI = () => {
-    Alert.alert('API Test', 'This demonstrates the API integration. Check the posts below!');
+    Alert.alert(
+      'API Test',
+      'This demonstrates the API integration. Check the posts below!'
+    );
   };
 
   const displayedPosts = showAll ? posts : posts?.slice(0, 3);
@@ -23,7 +25,7 @@ export default function ExploreScreen() {
         <ThemedText type="title" style={styles.title}>
           Explore Features
         </ThemedText>
-        
+
         <ThemedText style={styles.subtitle}>
           Discover what's built into this starter template
         </ThemedText>
@@ -33,10 +35,11 @@ export default function ExploreScreen() {
             🌐 API Integration Demo
           </ThemedText>
           <ThemedText style={styles.description}>
-            This section demonstrates the built-in API service fetching data from a public API.
+            This section demonstrates the built-in API service fetching data
+            from a public API.
           </ThemedText>
-          
-          <Button 
+
+          <Button
             title="Test API Connection"
             onPress={handleTestAPI}
             variant="primary"
@@ -44,11 +47,16 @@ export default function ExploreScreen() {
           />
 
           {loading && <LoadingSpinner text="Loading posts..." />}
-          
+
           {error && (
             <ThemedView style={styles.errorContainer}>
               <ThemedText style={styles.errorText}>Error: {error}</ThemedText>
-              <Button title="Retry" onPress={refetch} variant="secondary" size="small" />
+              <Button
+                title="Retry"
+                onPress={refetch}
+                variant="secondary"
+                size="small"
+              />
             </ThemedView>
           )}
 
@@ -57,7 +65,7 @@ export default function ExploreScreen() {
               <ThemedText type="defaultSemiBold" style={styles.postsTitle}>
                 Sample Posts ({posts?.length} total)
               </ThemedText>
-              
+
               {displayedPosts.map((post) => (
                 <ThemedView key={post.id} style={styles.postCard}>
                   <ThemedText type="defaultSemiBold" style={styles.postTitle}>
@@ -68,7 +76,7 @@ export default function ExploreScreen() {
                   </ThemedText>
                 </ThemedView>
               ))}
-              
+
               {posts && posts.length > 3 && (
                 <Button
                   title={showAll ? 'Show Less' : `Show All (${posts.length})`}
@@ -85,25 +93,33 @@ export default function ExploreScreen() {
           <ThemedText type="subtitle" style={styles.sectionTitle}>
             🛠 Developer Tools
           </ThemedText>
-          
+
           <ThemedView style={styles.toolCard}>
             <ThemedText type="defaultSemiBold">State Management</ThemedText>
-            <ThemedText>Zustand with persistence for global state management</ThemedText>
+            <ThemedText>
+              Zustand with persistence for global state management
+            </ThemedText>
           </ThemedView>
 
           <ThemedView style={styles.toolCard}>
             <ThemedText type="defaultSemiBold">Storage Services</ThemedText>
-            <ThemedText>Secure storage for sensitive data and AsyncStorage for app data</ThemedText>
+            <ThemedText>
+              Secure storage for sensitive data and AsyncStorage for app data
+            </ThemedText>
           </ThemedView>
 
           <ThemedView style={styles.toolCard}>
             <ThemedText type="defaultSemiBold">Custom Hooks</ThemedText>
-            <ThemedText>Utility hooks for debouncing, API calls, and common patterns</ThemedText>
+            <ThemedText>
+              Utility hooks for debouncing, API calls, and common patterns
+            </ThemedText>
           </ThemedView>
 
           <ThemedView style={styles.toolCard}>
             <ThemedText type="defaultSemiBold">Error Handling</ThemedText>
-            <ThemedText>Comprehensive error handling with user-friendly messages</ThemedText>
+            <ThemedText>
+              Comprehensive error handling with user-friendly messages
+            </ThemedText>
           </ThemedView>
         </ThemedView>
 
@@ -112,15 +128,28 @@ export default function ExploreScreen() {
             📱 Ready for Production
           </ThemedText>
           <ThemedText style={styles.description}>
-            This template includes everything you need to build and deploy a production-ready app:
+            This template includes everything you need to build and deploy a
+            production-ready app:
           </ThemedText>
-          
-          <ThemedText style={styles.bulletPoint}>• TypeScript configuration</ThemedText>
-          <ThemedText style={styles.bulletPoint}>• ESLint and Prettier setup</ThemedText>
-          <ThemedText style={styles.bulletPoint}>• Testing framework (Jest)</ThemedText>
-          <ThemedText style={styles.bulletPoint}>• EAS Build configuration</ThemedText>
-          <ThemedText style={styles.bulletPoint}>• Environment management</ThemedText>
-          <ThemedText style={styles.bulletPoint}>• CI/CD ready scripts</ThemedText>
+
+          <ThemedText style={styles.bulletPoint}>
+            • TypeScript configuration
+          </ThemedText>
+          <ThemedText style={styles.bulletPoint}>
+            • ESLint and Prettier setup
+          </ThemedText>
+          <ThemedText style={styles.bulletPoint}>
+            • Testing framework (Jest)
+          </ThemedText>
+          <ThemedText style={styles.bulletPoint}>
+            • EAS Build configuration
+          </ThemedText>
+          <ThemedText style={styles.bulletPoint}>
+            • Environment management
+          </ThemedText>
+          <ThemedText style={styles.bulletPoint}>
+            • CI/CD ready scripts
+          </ThemedText>
         </ThemedView>
       </ThemedView>
     </ScrollView>
