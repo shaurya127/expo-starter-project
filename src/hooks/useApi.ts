@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { api, ApiError } from '@/services/api';
+import { api, ApiError } from '@/src/services/api';
 
 interface UseApiOptions {
   immediate?: boolean;
